@@ -1,0 +1,11 @@
+{
+  "name": "mod42",
+  "version": "1.0.0",
+  "description": "Until I finalize the different recipes, it might not be a bad idea to build them incrementally.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED"
+}

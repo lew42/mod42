@@ -1,5 +1,5 @@
 var test = require("test42");
-var is = require("is");
+var is = require("util42").is;
 var $ = require("jquery");
 var assert = console.assert.bind(console);
 

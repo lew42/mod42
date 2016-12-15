@@ -1,6 +1,6 @@
 var test = require("test42");
-var view = require("View");
-var is = require("is");
+var view = require("view42");
+var is = require("util42").is;
 var Mod = require("./Mod4");
 var assert = test.assert;
 

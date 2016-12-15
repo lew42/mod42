@@ -1,6 +1,6 @@
-var Mfn = require("mod42/Mfn");
-var ExtendMfn = require("mod42/ExtendMfn");
-var is = require("is");
+var Mfn = require("./Mfn");
+var ExtendMfn = require("./ExtendMfn");
+var is = require("util42").is;
 var logger = require("log42");
 
 var log = logger();
@@ -72,7 +72,10 @@ var SetMfn = module.exports = Mfn.extend({
 		var currentValue = mod[prop],
 			hasOwn = mod.hasOwnProperty(prop);
 
-		if (is.undef(currentValue)){
+		if (is.fn(mod["set_" + prop])) {
+			mod["set_" + prop](value);
+			
+		} else if (is.undef(currentValue)){
 			this.stdProp(mod, prop, value);
 
 		} else if (is.Class(currentValue)) {

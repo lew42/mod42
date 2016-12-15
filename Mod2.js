@@ -1,11 +1,11 @@
 var SetMfn = require("./SetMfn");
 var logger = require("log42");
-var is = require("is");
+var is = require("util42").is;
 var Mod1 = require("./Mod1");
 var Mod4 = require("./Mod4");
 
 var Method = require("log42/Method");
-var Property = require("Property");
+var Property = require("./Property");
 
 var log = logger();
 

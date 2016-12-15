@@ -1,6 +1,6 @@
 var Base = require("base42");
-var is = require("is");
-var track = require("track");
+var is = require("util42").is;
+var track = require("track42");
 var logger = require("log42");
 var log = logger();
 

@@ -1,5 +1,5 @@
-var Mfn = require("mod42/Mfn");
-var track = require("track");
+var Mfn = require("./Mfn");
+var track = require("track42");
 var logger = require("log42");
 var log = logger();
 

@@ -1,5 +1,5 @@
 var Mod2 = require("./Mod2");
-var track = require("track")
+var track = require("track42")
 
 var Mod3 = module.exports = Mod2.extend({
 	name: "Mod3",

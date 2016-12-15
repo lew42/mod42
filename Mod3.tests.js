@@ -1,17 +1,14 @@
-var TestFramework = require("test/framework");
-var test = TestFramework.test;
-var is = require("is");
+var test = require("test42");
+var assert = test.assert;
+var is = require("util42").is;
 var $ = require("jquery");
-var assert = console.assert.bind(console);
 
 var logger = require("log42");
 
-var Mod1 = require("mod42/Mod1");
-var Mod2 = require("mod42/Mod2");
-var Mod3 = require("mod42/Mod3");
+var Mod1 = require("./Mod1");
+var Mod2 = require("./Mod2");
+var Mod3 = require("./Mod3");
 
-
-$(function(){
 
 test("basic", function(){
 	var mod = Mod3();
@@ -34,6 +31,4 @@ test("cloning", function(){
 	assert(parentClone.child !== parent.child);
 
 	assert(parentClone instanceof Mod3);
-});
-
 });

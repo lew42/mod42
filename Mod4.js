@@ -1,6 +1,6 @@
 var Mod1 = require("./Mod1");
-var track = require("track");
-var is = require("is");
+var track = require("track42");
+var is = require("util42").is;
 
 /*
 If the child is unique, which based on this parenting check, then the name should always be accurate.
@@ -71,6 +71,18 @@ var Mod4 = module.exports = Mod1.extend({
 				value.setup(mod, prop);
 		}
 	},
+	/*
+	set and then protect?  that's how it worked before, and for good reason, I think:  so you can override something BEFORE it gets auto-cloned.
+
+	But, in the case of a blank array, for example, we end up assigning to the prototype...
+
+	We really need to auto-protect before set, and after set:
+
+	1) auto-clone the empty arrays and pojos?
+
+		shouldn't set. array Prop do this?
+		nope - but it should throw a warning...
+	*/
 	instantiate: function(){
 		this.set.apply(this, arguments);
 		this.protect();

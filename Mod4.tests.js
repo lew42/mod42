@@ -16,17 +16,16 @@ test("Mod4", function(){
 
 	test("auto adopt", function(){
 		var mod = Mod({
-			sub: Mod()
+			sub: Mod.Sub()
 		});
 
 		assert(mod.sub.parent === mod);
 	});
 
 	test("only adopt once", function(){
-		var sub = Mod();
+		var sub = Mod.Sub();
 
 		assert(!sub.parent);
-		assert(sub.name === "mod4");
 
 		var mod1 = Mod({
 			first: sub
@@ -47,7 +46,7 @@ test("Mod4", function(){
 	});
 
 	test("add prototype sub module, and protect -> auto clone on instantiate", function(){
-		var sub = Mod();
+		var sub = Mod.Sub();
 
 		assert(is.undef(sub.parent));
 
@@ -87,8 +86,8 @@ test("Mod4", function(){
 		});
 
 		var mod = Mod({
-			sub1: Mod({
-				sub2: Mod()
+			sub1: Mod.Sub({
+				sub2: Mod.Sub()
 			})
 		});
 

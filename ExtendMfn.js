@@ -10,7 +10,7 @@ var ExtendMfn = module.exports = Mfn.extend({
 	main: function(Base, o){
 		var Ext, args = arguments;
 		// this.log.gc("extend", function(){
-			Ext = Base.create_constructor(this.get_name(Base, o));
+			Ext = Base.createConstructor(this.get_name(Base, o));
 			this.setup_constructor(Ext, Base);
 			this.create_prototype(Ext, Base);
 			this.instantiate_prototype(Ext, Base);

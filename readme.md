@@ -1,3 +1,12 @@
+## Cloning
+
+The auto adoption can get a little tricky.  To begin, I think using a special Mod that uses the adoption feature is a good idea, so its easy to turn on/off.
+
+Rather than just auto-adopt everything, there could be an .orphan = true flag set to all Mod.Subs.  You could then just turn orphan: false if you were extending a Sub module, but wanted to treat it as a floating/permanent orphan.
+
+Or maybe you set orphan: true, in order to convert it to an orphan - a module that intentionally has no parent (and specifically is set to ignore adoption attempts);
+
+
 Until I finalize the different recipes, it might not be a bad idea to build them incrementally.
 
 How about:

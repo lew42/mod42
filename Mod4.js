@@ -67,8 +67,8 @@ var Mod4 = module.exports = Mod1.extend({
 		stdProp: function(mod, prop, value){
 			mod[prop] = value;
 
-			if (value && is.fn(value.setup) && prop !== "parent")
-				value.setup(mod, prop);
+			if (value && !value.orphan && is.fn(value.set_parent) && prop !== "parent")
+				value.set_parent(mod, prop);
 		}
 	},
 	/*
@@ -131,7 +131,8 @@ var Mod4 = module.exports = Mod1.extend({
 	// but, its just as easy to use Mod.Sub()...
 Mod4.Sub = Mod4.extend({
 	name: "Sub",
-	setup: function(parent, name){
+	orphan: false,
+	set_parent: function(parent, name){
 		if (parent && !this.hasOwnProperty("parent")){
 			this.parent = parent;
 		}

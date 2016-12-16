@@ -235,6 +235,19 @@ test("Mod1", function(){
 		assert(mod1.settings.sub !== Mod2.prototype.settings.sub);
 	});
 
+	test("set_*", function(){
+		var Mod2 = Mod1.extend({
+			set_something: function(value){
+				console.log("set_something:", value);
+				this.something = value;
+			}
+		});
+
+		var mod = Mod2({
+			something: 123
+		});
+	});
+
 });
 
 test("Mod2", function(){

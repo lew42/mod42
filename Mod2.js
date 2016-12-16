@@ -158,7 +158,7 @@ var Mod2 = module.exports = Mod4.extend({
 
 Mod2.Sub = Mod2.extend({
 	name: "Sub",
-	setup: Mod4.Sub.prototype.setup
+	set_parent: Mod4.Sub.prototype.set_parent
 })
 
 set.mfn.wrapMethod(Mod2, "extend", Mod2.extend);

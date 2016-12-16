@@ -1,12 +1,12 @@
 var test = require("test42");
 var is = require("util42").is;
 var $ = require("jquery");
-var assert = console.assert.bind(console);
+var assert = test.assert;
 
 var logger = require("log42");
 
-var Mod1 = require("mod42/Mod1");
-var Mod2 = require("mod42/Mod2");
+var Mod1 = require("./Mod1");
+var Mod2 = require("./Mod2");
 
 console.groupEnd();
 

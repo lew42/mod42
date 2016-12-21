@@ -63,7 +63,10 @@ var SetMfn = module.exports = Mfn.extend({
 			}
 		},
 		parent: function(mod, prop, value){
-			this.stdProp(mod, prop, value);
+			if (is.fn(mod.set_parent))
+				mod.set_parent(value);
+			else 
+				this.stdProp(mod, prop, value);
 		}
 	},
 	prop: function(mod, prop, value){

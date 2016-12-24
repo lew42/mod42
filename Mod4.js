@@ -88,15 +88,22 @@ var Mod4 = module.exports = Mod1.extend({
 		this.protect();
 		this.initialize.apply(this, arguments);
 	},
-	protect: function(){
+	protect: function(proto){
 		var prop, clones = [], swap = [];
+		proto = proto || this.proto;
 		for (var i in this){
 			if (["constructor", "base", "proto", "parent"].indexOf(i) > -1)
 				continue;
 			if (this.hasOwnProperty(i))
 				continue;
 			prop = this[i];
-			if (prop && prop.clone && prop.parent && prop.parent === this.proto){
+			/*
+			Major problem - we need to protect prototypes on .extending
+			I was originally thinking that .set could do the protecting, which it does, but if you .extend without hitting a property that needs cloning, then it never gets double checked...
+
+			We basically need to run a protection on the prototypes upon cloning, to auto-clone...
+			*/
+			if (prop && prop.clone && prop.parent && prop.parent === proto){
 				this[i] = prop.clone({
 					parent: this,
 					name: i

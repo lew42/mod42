@@ -70,7 +70,9 @@ var SetMfn = module.exports = Mfn.extend({
 		}
 	},
 	prop: function(mod, prop, value){
-		this.log.group(prop, this.log.inline(value));
+		// if (!is.pojo(mod) && is.fn(mod.log)){
+		// 	mod.log.group(prop, mod.log.inline(value));
+		// }
 
 		var currentValue = mod[prop],
 			hasOwn = mod.hasOwnProperty(prop);
@@ -103,7 +105,8 @@ var SetMfn = module.exports = Mfn.extend({
 			this.stdProp(mod, prop, value);
 		}
 
-		this.log.end();
+		// if (!is.pojo(mod) && is.fn(mod.log))
+		// 	mod.log.end();
 	},
 	arrProp: function(mod, prop, value){
 		if (!mod.hasOwnProperty(prop)){

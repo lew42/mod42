@@ -51,6 +51,8 @@ var ExtendMfn = module.exports = Mfn.extend({
 	instantiate_prototype: function(Ext, Base){},
 	setup_prototype: function(Ext, Base, args){
 		Ext.prototype.set.apply(Ext.prototype, args);
+		if (Ext.prototype.protect)
+			Ext.prototype.protect(Base.prototype);
 	}
 });
 
